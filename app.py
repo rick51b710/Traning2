@@ -1,14 +1,10 @@
-from flask import Flask, jsonify
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
-@app.route("/")
-def home():
+@app.route('/')
+def index():
     return jsonify({"message": "Hello, Vercel! Your Flask app is running."})
 
-@app.route("/health")
-def health_check():
-    return jsonify({"status": "ok"})
-
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
